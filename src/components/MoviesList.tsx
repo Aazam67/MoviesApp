@@ -6,10 +6,10 @@ import {
   StackDivider,
   Stack,
   Box,
-  Text,
 } from "@chakra-ui/react";
+import MovieGrid from "./MovieGrid";
 
-const Movies = () => {
+const MoviesList = () => {
   return (
     <Card>
       <CardHeader>
@@ -22,13 +22,11 @@ const Movies = () => {
             <Heading size="xs" textTransform="uppercase">
               Genre
             </Heading>
-            <Text pt="2" fontSize="sm">
-              View a summary of all your clients over the last month.
-            </Text>
+            <MovieGrid />
           </Box>
         </Stack>
       </CardBody>
     </Card>
   );
 };
-export default Movies;
+export default MoviesList;
