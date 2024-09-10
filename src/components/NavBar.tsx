@@ -5,7 +5,6 @@ import {
   Flex,
   Link,
   Button,
-  useColorModeValue,
   IconButton,
 } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
