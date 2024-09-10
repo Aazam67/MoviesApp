@@ -7,7 +7,7 @@ interface Props {
 
 const MovieCard = ({ movie }: Props) => {
   return (
-    <Card borderRadius={10} overflow="hidden">
+    <Card>
       <Image src={movie.imageUrl} />
       <CardBody>
         <Heading fontSize="md">{movie.title}</Heading>
