@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import MovieGrid from "./MovieGrid";
 
-interface Props {}
 const movies = [{ genre: "Action" }, { genre: "Drama" }, { genre: "Comedy" }];
 const MoviesList = () => {
   return (
