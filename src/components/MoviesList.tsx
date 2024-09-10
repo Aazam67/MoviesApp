@@ -2,29 +2,31 @@ import {
   Card,
   CardHeader,
   CardBody,
-  Heading,
   StackDivider,
   Stack,
   Box,
 } from "@chakra-ui/react";
 import MovieGrid from "./MovieGrid";
 
+interface Props {}
+const movies = [{ genre: "Action" }, { genre: "Drama" }, { genre: "Comedy" }];
 const MoviesList = () => {
   return (
     <Card>
-      <CardHeader>
-        <Heading size="md">Genre</Heading>
-      </CardHeader>
-
       <CardBody>
         <Stack divider={<StackDivider />} spacing="4">
-          <Box>
-            <Heading size="xs" textTransform="uppercase">
-              Genre
-            </Heading>
-            <MovieGrid />
-          </Box>
+          {movies.map((movie, index) => (
+            <Box key={index} p={5}>
+              <CardHeader as="h1" fontSize={40} mb={2}>
+                {movie.genre}
+              </CardHeader>
+              <Box>
+                <MovieGrid />
+              </Box>
+            </Box>
+          ))}
         </Stack>
+        ;
       </CardBody>
     </Card>
   );
