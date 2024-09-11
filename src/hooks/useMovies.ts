@@ -14,11 +14,15 @@ export interface Movie {
   title: string;
 }
 
+interface Request {
+  movieId?: string;
+  title?: string;
+}
 interface FetchMovies {
   [key: string]: Movie;
 }
 
-const useMovies = () => {
+const useMovies = ({ movieId, title }: Request) => {
   const [movies, setMovies] = useState<FetchMovies>({});
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -26,8 +30,16 @@ const useMovies = () => {
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
+    var requestParam = movieId
+      ? `?orderBy="$key"&equalTo="${movieId}"`
+      : title
+      ? `?orderBy="title"&equalTo="${title}"`
+      : "";
+
     apiClient
-      .get<FetchMovies>("/movies.json", { signal: controller.signal })
+      .get<FetchMovies>(`/movies.json${requestParam}`, {
+        signal: controller.signal,
+      })
       .then((res) => {
         setMovies(res.data);
         setLoading(false);

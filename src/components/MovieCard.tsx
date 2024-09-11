@@ -1,17 +1,20 @@
-import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
+import { Card, CardBody, Heading, Image, Link } from "@chakra-ui/react";
 import { Movie } from "../hooks/useMovies";
 
 interface Props {
   movie: Movie;
+  id: string;
 }
 
-const MovieCard = ({ movie }: Props) => {
+const MovieCard = ({ movie, id }: Props) => {
   return (
     <Card>
-      <Image src={movie.imageUrl} />
-      <CardBody>
-        <Heading fontSize="md">{movie.title}</Heading>
-      </CardBody>
+      <Link href={`/movie/${id}`}>
+        <Image src={movie.imageUrl} />
+        <CardBody>
+          <Heading fontSize="sm">{movie.title}</Heading>
+        </CardBody>
+      </Link>
     </Card>
   );
 };

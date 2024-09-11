@@ -1,7 +1,11 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import Movies from "./components/MoviesList";
+import Movies from "./components/MoviesList"; //Home
+import Genre from "./components/GenreList";
+import GenreMovies from "./components/GenreMovies";
+import MovieDetail from "./components/MovieDetail";
 
 function App() {
   return (
@@ -20,7 +24,12 @@ function App() {
 
         {/* Content */}
         <GridItem area="main" p={4}>
-          <Movies />
+          <Routes>
+            <Route path="/genre" element={<Genre />} />
+            <Route path="/genre/:genreId" element={<GenreMovies />} />
+            <Route path="/movie/:movieTitle" element={<MovieDetail />} />
+            <Route path="/" element={<Movies />} />
+          </Routes>
         </GridItem>
 
         {/* Footer */}

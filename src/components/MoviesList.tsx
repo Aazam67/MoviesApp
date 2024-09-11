@@ -12,26 +12,26 @@ import GenreList from "./GenreList";
 import useGenre from "../hooks/useGenre";
 
 const MoviesList = () => {
-  const { genres } = useGenre();
+  const { genres } = useGenre({});
   return (
-    <Card>
-      <CardBody>
-        <Stack divider={<StackDivider />} spacing="4">
-          {Object.keys(genres).map((genre, index) => (
-            <Box key={index} p={5}>
-              <CardHeader as="h1" fontSize={40} mb={2}>
-                <Select placeholder="Genre">
-                  <option value={genre}>
-                    <GenreList />
-                  </option>
-                </Select>
-              </CardHeader>
+    <Stack divider={<StackDivider />} spacing="4">
+      {Object.keys(genres).map((genre, index) => (
+        <Box key={index} p={5}>
+          <Card>
+            <CardHeader as="h1" fontSize={40} mb={2}>
+              <Select placeholder="Genre">
+                <option value={genre}>
+                  <GenreList />
+                </option>
+              </Select>
+            </CardHeader>
+            <CardBody>
               <MovieGrid />
-            </Box>
-          ))}
-        </Stack>
-      </CardBody>
-    </Card>
+            </CardBody>
+          </Card>
+        </Box>
+      ))}
+    </Stack>
   );
 };
 export default MoviesList;

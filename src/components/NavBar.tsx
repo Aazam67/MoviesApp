@@ -10,7 +10,7 @@ import {
 import logo from "../assets/logo.webp";
 import { SearchIcon } from "@chakra-ui/icons";
 import ColorModeSwitch from "./ColorModeSwitch";
-import GenreList from "./GenreList";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -21,10 +21,10 @@ const NavBar = () => {
             <Image src={logo} boxSize="100px" />
           </Box>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-            <Link href="/">Home</Link>
-            <Link href="#">Genre</Link>
-            <Link href="#">People</Link>
-            <Link href="#">About</Link>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/genre">Genre</NavLink>
+            <NavLink to="/people">People</NavLink>
+            <NavLink to="/about">About</NavLink>
           </HStack>
         </HStack>
 

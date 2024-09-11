@@ -2,33 +2,26 @@ import { useEffect, useState } from "react";
 import apiClient from "../Services/api-client";
 import { CanceledError } from "axios";
 
-export interface GenreMovie {
-  movieId: string;
-  movieName: string;
+export interface GenreMovies {
+  id: string;
+  name: string;
 }
 
-interface Request {
-  genreId?: string;
+interface FetchGenreMovies {
+  [key: string]: GenreMovies;
 }
-
-interface FetchGenres {
-  [key: string]: GenreMovie;
-}
-const useGenre = ({ genreId }: Request) => {
-  const [genres, setGenres] = useState<FetchGenres>({});
+const useGenre = () => {
+  const [genreMovies, setGenreMovies] = useState<FetchGenreMovies>({});
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
-    var requestParam = genreId ? `?orderBy="$key"&equalTo="${genreId}"` : "";
     apiClient
-      .get<FetchGenres>(`/genres.json${requestParam}`, {
-        signal: controller.signal,
-      })
+      .get<FetchGenreMovies>("/genres.json", { signal: controller.signal })
       .then((res) => {
-        setGenres(res.data);
+        setGenreMovies(res.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -39,6 +32,6 @@ const useGenre = ({ genreId }: Request) => {
     return () => controller.abort();
   }, []);
 
-  return { genres, error, isLoading };
+  return { genreMovies, error, isLoading };
 };
 export default useGenre;

@@ -7,7 +7,7 @@ import MovieCardContainer from "./MovieCardContainer";
 
 const MovieGrid = () => {
   //const { genres } = useGenre();
-  const { movies, error, isLoading } = useMovies();
+  const { movies, error, isLoading } = useMovies({});
 
   const skeletons = [1, 2, 3, 4, 5, 6];
   return (
@@ -26,7 +26,7 @@ const MovieGrid = () => {
           ))}
         {Object.keys(movies).map((movieId) => (
           <MovieCardContainer key={movieId}>
-            <MovieCard key={movieId} movie={movies[movieId]} />
+            <MovieCard key={movieId} id={movieId} movie={movies[movieId]} />
           </MovieCardContainer>
         ))}
       </SimpleGrid>

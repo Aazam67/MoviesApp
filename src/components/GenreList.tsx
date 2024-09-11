@@ -1,18 +1,23 @@
-import { Grid, GridItem, Text } from "@chakra-ui/react";
+import { Card, CardBody, Box, SimpleGrid, Link } from "@chakra-ui/react";
 import useGenre from "../hooks/useGenre";
+import { Link as RouterLink } from "react-router-dom";
 
-const GenreList = () => {
-  const { genres, error } = useGenre();
-
+const GenresList = () => {
+  const { genres } = useGenre({});
   return (
-    <>
-      {error && <Text>{error}</Text>}
-      <Grid>
-        {Object.keys(genres).map((genre) => (
-          <GridItem key={genre}>{genre}</GridItem>
-        ))}
-      </Grid>
-    </>
+    <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}>
+      {Object.keys(genres).map((genre, index) => (
+        <Box key={index} p={5}>
+          <Card>
+            <CardBody>
+              <Link as={RouterLink} to={`/genre/${genre}`}>
+                {genre}
+              </Link>
+            </CardBody>
+          </Card>
+        </Box>
+      ))}
+    </SimpleGrid>
   );
 };
-export default GenreList;
+export default GenresList;
