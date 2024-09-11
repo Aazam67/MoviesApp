@@ -8,14 +8,15 @@ import {
   Heading,
   Link,
 } from "@chakra-ui/react";
-import useMovies, { Movie } from "../hooks/useMovies";
+import useMovies from "../hooks/useMovies";
 import { useParams } from "react-router-dom";
 
 import { Link as RouterLink } from "react-router-dom";
+import useReview from "../hooks/useReview";
 const MovieDetail = () => {
-  const { movieTitle } = useParams();
-  const { movies } = useMovies({ movieId: movieTitle });
-
+  const { movieId } = useParams();
+  const { movies } = useMovies({ movieId });
+  const { reviews } = useReview({ movieId });
   return (
     <>
       {Object.keys(movies).map((movieId) => {
@@ -100,6 +101,33 @@ const MovieDetail = () => {
                 </Stack>
               </Box>
             </Flex>
+          </Box>
+        );
+      })}
+
+      {Object.keys(reviews).map((reviewId, index) => {
+        let review = reviews[reviewId];
+        return (
+          <Box
+            key={index}
+            borderWidth="1px"
+            borderRadius="md"
+            p={4}
+            shadow="md"
+            w="full"
+          >
+            <Heading size="md">{review.title || "Untitled"}</Heading>
+            <Text mt={2}>
+              <strong>Reviewer:</strong> {review.reviewer}
+            </Text>
+            {review.score && (
+              <Badge mt={2} colorScheme="green">
+                Score: {review.score}
+              </Badge>
+            )}
+            <Text mt={2}>
+              <strong>Review:</strong> {review.review}
+            </Text>
           </Box>
         );
       })}

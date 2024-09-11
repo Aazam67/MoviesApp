@@ -27,7 +27,7 @@ function App() {
           <Routes>
             <Route path="/genre" element={<Genre />} />
             <Route path="/genre/:genreId" element={<GenreMovies />} />
-            <Route path="/movie/:movieTitle" element={<MovieDetail />} />
+            <Route path="/movie/:movieId" element={<MovieDetail />} />
             <Route path="/" element={<Movies />} />
           </Routes>
         </GridItem>
