@@ -3,9 +3,12 @@ import { SimpleGrid, Text } from "@chakra-ui/react";
 import MovieCard from "./MovieCard";
 import MovieCardSkeleton from "./MovieCardSkeleton";
 import MovieCardContainer from "./MovieCardContainer";
+//import useGenre from "../hooks/useGenre";
 
 const MovieGrid = () => {
+  //const { genres } = useGenre();
   const { movies, error, isLoading } = useMovies();
+
   const skeletons = [1, 2, 3, 4, 5, 6];
   return (
     <>
@@ -17,13 +20,13 @@ const MovieGrid = () => {
       >
         {isLoading &&
           skeletons.map((skeleton) => (
-            <MovieCardContainer>
+            <MovieCardContainer key={skeleton}>
               <MovieCardSkeleton key={skeleton} />
             </MovieCardContainer>
           ))}
-        {Object.keys(movies).map((id) => (
-          <MovieCardContainer>
-            <MovieCard key={id} movie={movies[id]} />{" "}
+        {Object.keys(movies).map((movieId) => (
+          <MovieCardContainer key={movieId}>
+            <MovieCard key={movieId} movie={movies[movieId]} />
           </MovieCardContainer>
         ))}
       </SimpleGrid>
