@@ -23,7 +23,8 @@ const NavBar = () => {
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/genre">Genre</NavLink>
-            <NavLink to="/people">People</NavLink>
+            <NavLink to="/people/actor">Actors</NavLink>
+            <NavLink to="/people/director">Directors</NavLink>
             <NavLink to="/about">About</NavLink>
           </HStack>
         </HStack>
