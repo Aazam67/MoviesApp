@@ -18,7 +18,7 @@ interface Request {
   movieId?: string;
   title?: string;
 }
-interface FetchMovies {
+export interface FetchMovies {
   [key: string]: Movie;
 }
 

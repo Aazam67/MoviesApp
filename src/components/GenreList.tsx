@@ -4,7 +4,6 @@ import {
   Box,
   SimpleGrid,
   Link,
-  Skeleton,
   SkeletonText,
   Text,
 } from "@chakra-ui/react";

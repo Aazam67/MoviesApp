@@ -151,6 +151,7 @@ const Navbar = () => {
               <NavLink to="/genre">Genre</NavLink>
               <NavLink to="/people/actor">Actors</NavLink>
               <NavLink to="/people/director">Directors</NavLink>
+              <NavLink to="/topmovies">Top 10</NavLink>
               <NavLink to="/about">About</NavLink>
             </Stack>
           </Flex>
@@ -183,6 +184,7 @@ const Navbar = () => {
           <NavLink to="/genre">Genre</NavLink>
           <NavLink to="/people/actor">Actors</NavLink>
           <NavLink to="/people/director">Directors</NavLink>
+          <NavLink to="/topmovies">Top 10</NavLink>
           <NavLink to="/about">About</NavLink>
         </Stack>
       </Collapse>

@@ -1,14 +1,11 @@
-import logo from "../assets/logo.webp";
 import appstore from "../assets/appstore.webp";
 import galaxystore from "../assets/galaxystore.webp";
 import googleplay from "../assets/googleplay.webp";
-import React from "react";
 import {
   Box,
   Container,
   Flex,
   Text,
-  Link,
   useBreakpointValue,
   Image,
 } from "@chakra-ui/react";
