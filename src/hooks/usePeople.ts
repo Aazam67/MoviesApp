@@ -27,13 +27,11 @@ const usePeople = ({ peopleId, role_code, dependency }: Request) => {
     () => {
       const controller = new AbortController();
       setLoading(true);
-      console.log(peopleId);
       var requestParam = peopleId
         ? `?orderBy="$key"&equalTo="${peopleId}"`
         : role_code
         ? `?orderBy="role"&equalTo="${role_code}"`
         : "";
-      console.log(requestParam);
       apiClient
         .get<FetchPeople>(`/people.json${requestParam}`, {
           signal: controller.signal,

@@ -1,7 +1,6 @@
 import { Box, Image, Text, VStack, HStack, Heading } from "@chakra-ui/react";
 import usePeople from "../hooks/usePeople";
 import { useParams } from "react-router-dom";
-import { object } from "framer-motion/m";
 
 const PeopleDetail = () => {
   const { peopleId } = useParams();

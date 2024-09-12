@@ -8,6 +8,7 @@ import GenreMovies from "./components/GenreMovies";
 import MovieDetail from "./components/MovieDetail";
 import PeopleList from "./components/PeopleList";
 import PeopleDetail from "./components/PeopleDetail";
+import About from "./components/About";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
 
             <Route path="/genre/:genreId" element={<GenreMovies />} />
             <Route path="/movie/:movieId" element={<MovieDetail />} />
-
+            <Route path="/about" element={<About />} />
             <Route path="/" element={<Movies />} />
           </Routes>
         </GridItem>
