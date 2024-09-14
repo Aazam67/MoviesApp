@@ -1,4 +1,4 @@
-import useMovies, { FetchMovies } from "../hooks/useMovies";
+import { FetchMovies } from "../../hooks/useMovies";
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import MovieCard from "./MovieCard";
 import MovieCardSkeleton from "./MovieCardSkeleton";

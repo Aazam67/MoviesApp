@@ -1,9 +1,9 @@
-import useGenre from "../hooks/useGenre";
-import useMovies from "../hooks/useMovies";
+import useGenre from "../../hooks/useGenre";
+import useMovies from "../../hooks/useMovies";
 import { Box } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import MovieGrid from "./MovieGrid";
+import MovieGrid from "../movies/MovieGrid";
 
 const GenreMovies = () => {
   const { genreId } = useParams();

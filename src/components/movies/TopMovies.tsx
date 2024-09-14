@@ -1,4 +1,4 @@
-import useMovies from "../hooks/useMovies";
+import useMovies from "../../hooks/useMovies";
 import { Box } from "@chakra-ui/react";
 import MovieGrid from "./MovieGrid";
 

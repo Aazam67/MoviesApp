@@ -7,7 +7,7 @@ import {
   CardBody,
 } from "@chakra-ui/react";
 
-import usePeople from "../hooks/usePeople";
+import usePeople from "../../hooks/usePeople";
 import { useParams } from "react-router-dom";
 
 const PeopleList = () => {

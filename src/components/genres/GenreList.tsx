@@ -7,7 +7,7 @@ import {
   SkeletonText,
   Text,
 } from "@chakra-ui/react";
-import useGenre from "../hooks/useGenre";
+import useGenre from "../../hooks/useGenre";
 import { Link as RouterLink } from "react-router-dom";
 
 const GenresList = () => {

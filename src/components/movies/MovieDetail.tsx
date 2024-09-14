@@ -8,7 +8,7 @@ import {
   Heading,
   Link,
 } from "@chakra-ui/react";
-import useMovies from "../hooks/useMovies";
+import useMovies from "../../hooks/useMovies";
 import { useParams } from "react-router-dom";
 
 import { Link as RouterLink } from "react-router-dom";

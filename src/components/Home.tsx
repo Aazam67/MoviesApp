@@ -6,13 +6,13 @@ import {
   Stack,
   Box,
 } from "@chakra-ui/react";
-import MovieGrid from "./MovieGrid";
+import MovieGrid from "./movies/MovieGrid";
 import { Select } from "@chakra-ui/react";
 import useGenre from "../hooks/useGenre";
 import useMovies from "../hooks/useMovies";
 import { useEffect, useState } from "react";
 
-const MoviesList = () => {
+const Home = () => {
   const { genres } = useGenre({});
   const { movies, error, isLoading } = useMovies({});
   const [filteredMovies, setFilteredMovies] = useState({});
@@ -70,8 +70,8 @@ const MoviesList = () => {
             </option>
           ))}
         </Select>
-        <Select width="40%" onChange={(e) => setSort(e.target.value)}>
-          <option value="title.asc" selected>
+        <Select width="40%" onChange={(e) => setSort(e.target.value)} defaultValue="title.asc">
+          <option value="title.asc">
             Title Ascending
           </option>
           <option value="title.desc">Title Descending</option>
@@ -96,4 +96,4 @@ const MoviesList = () => {
     </Stack>
   );
 };
-export default MoviesList;
+export default Home;

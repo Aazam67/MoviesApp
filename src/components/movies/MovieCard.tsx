@@ -1,5 +1,5 @@
 import { Card, CardBody, Heading, Image, Link } from "@chakra-ui/react";
-import { Movie } from "../hooks/useMovies";
+import { Movie } from "../../hooks/useMovies";
 
 interface Props {
   movie: Movie;

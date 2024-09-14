@@ -1,87 +1,5 @@
-// import {
-//   ChakraProvider,
-//   Box,
-//   IconButton,
-//   Drawer,
-//   DrawerBody,
-//   DrawerHeader,
-//   DrawerOverlay,
-//   DrawerContent,
-//   DrawerCloseButton,
-//   Button,
-//   useDisclosure,
-//   VStack,
-//   Link,
-//   Text,
-//   Flex,
-//   HStack,
-//   Image,
-// } from "@chakra-ui/react";
-// import logo from "../assets/logo.webp";
-// import { SearchIcon } from "@chakra-ui/icons";
-// import ColorModeSwitch from "./ColorModeSwitch";
-// import { NavLink } from "react-router-dom";
-// import ReviewForm from "./SubmitReviews";
-// const { isOpen, onOpen, onClose } = useDisclosure();
-// const NavBar = () => {
-//   return (
-//     <Box px={4}>
-//       <Drawer isOpen={isOpen} onClose={onClose}>
-//         <DrawerOverlay />
-//         <DrawerContent>
-//           <DrawerCloseButton />
-//           <DrawerHeader>Menu</DrawerHeader>
 
-//           <DrawerBody>
-//             <VStack spacing={4} align="start" p={4}>
-//               <NavLink to="/">Home</NavLink>
-//               <NavLink to="/genre">Genre</NavLink>
-//               <NavLink to="/people/actor">Actors</NavLink>
-//               <NavLink to="/people/director">Directors</NavLink>
-//               <NavLink to="/about">About</NavLink>
-//             </VStack>
-//           </DrawerBody>
-//         </DrawerContent>
-//       </Drawer>
-//       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-//         <HStack spacing={8} alignItems={"center"}>
-//           <Box>
-//             <Image src={logo} boxSize="100px" />
-//           </Box>
-//           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-//             <NavLink to="/">Home</NavLink>
-//             <NavLink to="/genre">Genre</NavLink>
-//             <NavLink to="/people/actor">Actors</NavLink>
-//             <NavLink to="/people/director">Directors</NavLink>
-//             <NavLink to="/about">About</NavLink>
-//           </HStack>
-//         </HStack>
-
-//         <IconButton
-//           colorScheme="blue"
-//           aria-label="Search database"
-//           icon={<SearchIcon />}
-//         />
-
-//         <Flex alignItems={"center"}>
-//           <HStack padding="5px" justifyContent="space-between">
-//             <ColorModeSwitch />
-//           </HStack>
-//           <Button variant={"solid"} colorScheme={"teal"} size={"sm"} mr={4}>
-//             Sign Up
-//           </Button>
-//           <Button variant={"outline"} colorScheme={"teal"} size={"sm"}>
-//             Log In
-//           </Button>
-//         </Flex>
-//       </Flex>
-//     </Box>
-//   );
-// };
-// export default NavBar;
-// Navbar.js
-// Navbar.js
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import logo from "../assets/logo.webp";
 import {
   Box,
@@ -90,15 +8,11 @@ import {
   Link,
   Stack,
   Collapse,
-  Text,
-  Input,
-  InputGroup,
-  InputRightElement,
   useDisclosure,
   useColorModeValue,
   Image,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -153,6 +67,7 @@ const Navbar = () => {
               <NavLink to="/people/director">Directors</NavLink>
               <NavLink to="/topmovies">Top 10</NavLink>
               <NavLink to="/about">About</NavLink>
+              
             </Stack>
           </Flex>
         </Flex>

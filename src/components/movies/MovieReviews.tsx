@@ -1,7 +1,7 @@
 import { Box, Text, Badge, Heading } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
-import useReview from "../hooks/useReview";
+import useReview from "../../hooks/useReview";
 const MovieReview = () => {
   const { movieId } = useParams();
   const { reviews } = useReview({ movieId });
