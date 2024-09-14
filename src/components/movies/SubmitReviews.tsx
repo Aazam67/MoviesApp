@@ -86,8 +86,16 @@ const SubmitReviews = () => {
   };
 
   return (
-    <Box mt={10} p={5} borderWidth={1} borderRadius="lg">
-      <Heading as="h1" size="lg" textAlign="center" mb={6}>
+    <Box
+      mt={10}
+      p={5}
+      borderWidth={1}
+      borderRadius="lg">
+      <Heading
+        as="h1"
+        size="lg"
+        textAlign="center"
+        mb={6}>
         Submit Review
       </Heading>
       <form onSubmit={handleSubmit}>
@@ -98,7 +106,9 @@ const SubmitReviews = () => {
           onChange={handleChange}
           placeholder="Enter movie ID"
         />
-        <HStack spacing={4} mb={4}>
+        <HStack
+          spacing={4}
+          mb={4}>
           <FormControl isRequired>
             <FormLabel>Name</FormLabel>
             <Input
@@ -121,7 +131,9 @@ const SubmitReviews = () => {
             />
           </FormControl>
 
-          <FormControl isRequired mb={4}>
+          <FormControl
+            isRequired
+            mb={4}>
             <FormLabel>Score</FormLabel>
             <NumberInput
               name="score"
@@ -130,14 +142,15 @@ const SubmitReviews = () => {
               max={10}
               step={0.1}
               precision={1}
-              onChange={handleNumberChange}
-            >
+              onChange={handleNumberChange}>
               <NumberInputField placeholder="Enter between 1-10" />
             </NumberInput>
           </FormControl>
         </HStack>
 
-        <FormControl isRequired mb={4}>
+        <FormControl
+          isRequired
+          mb={4}>
           <FormLabel>Review</FormLabel>
           <Textarea
             name="review"
@@ -147,7 +160,10 @@ const SubmitReviews = () => {
           />
         </FormControl>
 
-        <Button colorScheme="teal" type="submit" width="full">
+        <Button
+          colorScheme="teal"
+          type="submit"
+          width="full">
           Submit
         </Button>
       </form>

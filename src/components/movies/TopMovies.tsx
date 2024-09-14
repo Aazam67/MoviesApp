@@ -11,10 +11,13 @@ const TopMovies = () => {
       acc[key] = movies[key];
       return acc;
     }, {});
-  console.log(sortedMovies);
   return (
     <Box p={5}>
-      <MovieGrid movies={sortedMovies} error={error} isLoading={isLoading} />
+      <MovieGrid
+        movies={sortedMovies}
+        error={error}
+        isLoading={isLoading}
+      />
     </Box>
   );
 };

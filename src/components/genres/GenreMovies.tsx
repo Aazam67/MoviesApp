@@ -28,7 +28,11 @@ const GenreMovies = () => {
 
   return (
     <Box p={5}>
-      <MovieGrid movies={filteredMovies} error={error} isLoading={isLoading} />
+      <MovieGrid
+        movies={filteredMovies}
+        error={error}
+        isLoading={isLoading}
+      />
     </Box>
   );
 };

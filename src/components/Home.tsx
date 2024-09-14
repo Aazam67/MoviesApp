@@ -9,17 +9,27 @@ import {
 import MovieGrid from "./movies/MovieGrid";
 import { Select } from "@chakra-ui/react";
 import useGenre from "../hooks/useGenre";
-import useMovies from "../hooks/useMovies";
+import useMovies, { FetchMovies } from "../hooks/useMovies";
 import { useEffect, useState } from "react";
 
 const Home = () => {
+  //fetch all genres
   const { genres } = useGenre({});
+  //fetch all movies
   const { movies, error, isLoading } = useMovies({});
+  //define state for filtered movies
   const [filteredMovies, setFilteredMovies] = useState({});
+  //state for selected genre dropdown
   const [genre, setGenre] = useState("");
+  //state for selected sort dropdown
   const [sort, setSort] = useState("title.asc");
 
-  const sortMovies = (movies, sortBy = "title", order = "asc") => {
+  //sort and filte movies function
+  const sortFilterMovies = (
+    movies: FetchMovies,
+    sortBy = "title",
+    order = "asc"
+  ) => {
     // Define sorting function based on the sortBy parameter
     const sortFunction = (a, b) => {
       let comparison = 0;
@@ -39,7 +49,7 @@ const Home = () => {
       }
 
       return order === "asc" ? comparison : -comparison;
-    }; // Sort movies based on the sortFunction
+    }; // Sort and Filter movies based on the sortFunction and genre value
     return Object.keys(movies)
       .filter((movieId) =>
         genre === "" ? true : movies[movieId].genres.some((g) => g === genre)
@@ -51,29 +61,38 @@ const Home = () => {
       }, {});
   };
 
+  //trigged when genre,sort,movies states changed
   useEffect(() => {
-    const filtered = sortMovies(movies, sort.split(".")[0], sort.split(".")[1]);
+    const filtered = sortFilterMovies(
+      movies,
+      sort.split(".")[0],
+      sort.split(".")[1]
+    );
     setFilteredMovies(filtered);
   }, [genre, sort, movies]);
 
   return (
-    <Stack divider={<StackDivider />} spacing="4">
+    <Stack
+      divider={<StackDivider />}
+      spacing="4">
       <Box display="flex">
         <Select
           placeholder="All Genres"
           onChange={(e) => setGenre(e.target.value)}
-          width="40%"
-        >
+          width="40%">
           {Object.keys(genres).map((genre, index) => (
-            <option key={index} value={genre}>
+            <option
+              key={index}
+              value={genre}>
               {genre}
             </option>
           ))}
         </Select>
-        <Select width="40%" onChange={(e) => setSort(e.target.value)} defaultValue="title.asc">
-          <option value="title.asc">
-            Title Ascending
-          </option>
+        <Select
+          width="40%"
+          onChange={(e) => setSort(e.target.value)}
+          defaultValue="title.asc">
+          <option value="title.asc">Title Ascending</option>
           <option value="title.desc">Title Descending</option>
           <option value="score.asc">Score Ascending</option>
           <option value="score.desc">Score Descending</option>
@@ -83,7 +102,10 @@ const Home = () => {
       </Box>
       <Box p={5}>
         <Card>
-          <CardHeader as="h1" fontSize={40} mb={2}></CardHeader>
+          <CardHeader
+            as="h1"
+            fontSize={40}
+            mb={2}></CardHeader>
           <CardBody>
             <MovieGrid
               movies={filteredMovies}

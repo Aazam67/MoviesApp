@@ -3,6 +3,7 @@ import apiClient from "../Services/api-client";
 import { CanceledError } from "axios";
 
 export interface GenreMovie {
+  [x: string]: any;
   movieId: string;
   movieName: string;
 }

@@ -19,8 +19,8 @@ const MovieGrid = ({ movies, error, isLoading }: Props) => {
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 4, xl: 6 }}
         padding="10px"
-        spacing={10}
-      >
+        spacing={10}>
+        {error && <Text color="red.500">{error}</Text>}
         {isLoading &&
           skeletons.map((skeleton) => (
             <MovieCardContainer key={skeleton}>
@@ -29,7 +29,11 @@ const MovieGrid = ({ movies, error, isLoading }: Props) => {
           ))}
         {Object.keys(movies).map((movieId) => (
           <MovieCardContainer key={movieId}>
-            <MovieCard key={movieId} id={movieId} movie={movies[movieId]} />
+            <MovieCard
+              key={movieId}
+              id={movieId}
+              movie={movies[movieId]}
+            />
           </MovieCardContainer>
         ))}
       </SimpleGrid>

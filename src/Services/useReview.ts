@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import apiClient from "../Services/api-client";
 import { CanceledError } from "axios";
 
-//Review data structure
+//review data structure
 export interface Review {
   movieId: string;
   review: string;
@@ -16,7 +16,6 @@ interface Request {
   movieId?: string;
 }
 
-//return data type
 interface FetchReview {
   [key: string]: Review;
 }

@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import logo from "../assets/logo.webp";
 import {
@@ -14,13 +13,13 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
+import ColorModeSwitch from "./themes/ColorModeSwitch";
 
 const Navbar = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   // Function to handle window resize
   const handleResize = () => {
     if (window.innerWidth >= 48 * 16) {
-      // Adjust this value to match your breakpoint (48 * 16 = 768px, for example)
       onClose(); // Close the menu if it is open
     }
   };
@@ -46,34 +45,42 @@ const Navbar = () => {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.700")}
         align={"center"}
-        justify={"space-between"}
-      >
+        justify={"space-between"}>
         <Flex
           flex={{ base: 1 }}
           align={"center"}
-          justify={{ base: "center", md: "start" }}
-        >
+          justify={{ base: "center", md: "start" }}>
           {/* Logo */}
-          <Link href={"#"} aria-label="Home">
-            <Image src={logo} boxSize="100px" />
+          <Link
+            href={"#"}
+            aria-label="Home">
+            <Image
+              src={logo}
+              boxSize="100px"
+            />
           </Link>
 
           {/* Desktop Menu */}
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <Stack direction={"row"} spacing={4}>
+          <Flex
+            display={{ base: "none", md: "flex" }}
+            ml={10}>
+            <Stack
+              direction={"row"}
+              spacing={4}>
               <NavLink to="/">Home</NavLink>
               <NavLink to="/genre">Genre</NavLink>
               <NavLink to="/people/actor">Actors</NavLink>
               <NavLink to="/people/director">Directors</NavLink>
               <NavLink to="/topmovies">Top 10</NavLink>
               <NavLink to="/about">About</NavLink>
-              
             </Stack>
           </Flex>
         </Flex>
 
         {/* Mobile Menu Toggle */}
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "end" }}>
+        <Flex
+          flex={{ base: 1 }}
+          justify={{ base: "center", md: "end" }}>
           <IconButton
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -82,10 +89,13 @@ const Navbar = () => {
             onClick={onToggle}
           />
         </Flex>
+        <ColorModeSwitch />
       </Flex>
 
       {/* Mobile Menu */}
-      <Collapse in={isOpen} animateOpacity>
+      <Collapse
+        in={isOpen}
+        animateOpacity>
         <Stack
           bg={useColorModeValue("gray.100", "gray.900")}
           p={4}
@@ -93,8 +103,7 @@ const Navbar = () => {
           spacing={4}
           align={"center"} // Center-align items horizontally
           borderTopWidth={1}
-          borderTopColor={useColorModeValue("gray.200", "gray.700")}
-        >
+          borderTopColor={useColorModeValue("gray.200", "gray.700")}>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/genre">Genre</NavLink>
           <NavLink to="/people/actor">Actors</NavLink>
