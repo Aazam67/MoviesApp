@@ -9,10 +9,8 @@ const About = () => {
       direction="column"
       align="center"
       justify="center"
-      height="100vh"
-      bg="gray.50"
-    >
-      <Card width="80%" boxShadow="lg">
+     >
+      <Card boxShadow="lg">
         <CardBody>
           <Text textAlign="center" mb={4}>
             Contact: RAD SYSTEM Office: Baharestan Street, Sari, Iran. Tel:
